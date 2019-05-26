@@ -1,0 +1,23 @@
+{
+  "name": "gleichsnerd",
+  "version": "1.0.0",
+  "description": "Homepage for Adam Gleichsner",
+  "main": "index.js",
+  "author": "gleichsnerd <gleichsnerd@gmail.com>",
+  "license": "GPL-3",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
+    "eslint": "^5.16.0",
+    "watchify": "^3.11.1"
+  },
+  "dependencies": {
+    "three": "^0.104.0"
+  },
+  "scripts": {
+    "dev": "browserify ./js/gleichsnerd.js -o ./dist/bundle.js -t [ babelify ] & cp index.html ./dist/index.html"
+  }
+}
