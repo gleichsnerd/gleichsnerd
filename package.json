@@ -9,17 +9,17 @@
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
-    "babelify": "^10.0.0",
-    "browserify": "^16.2.3",
     "eslint": "^5.16.0",
-    "watchify": "^3.11.1"
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2"
   },
   "dependencies": {
     "jquery": "^3.4.1",
     "three": "^0.104.0"
   },
   "scripts": {
-    "dev": "browserify ./js/gleichsnerd.js -o ./dist/bundle.js -t [ babelify ] & cp index.html ./dist/index.html & cp style.css ./dist/style.css",
-    "watch": "watchify ./js/*.js -o ./dist/bundle.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack"
   }
 }

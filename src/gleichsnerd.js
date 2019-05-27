@@ -1,5 +1,5 @@
-const $ = require("jquery");
-const TVStatic = require("./static");
+import $ from "jquery";
+import TVStatic from "./tv-static"
 
 function scrollToTop(id) {
     $('html, body').animate({

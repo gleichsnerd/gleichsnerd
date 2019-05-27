@@ -1,8 +1,7 @@
-const THREE = require("three")(["OrbitControls"]);
-const { OrbitControls } = require("three/examples/jsm/controls/OrbitControls");
+import * as THREE from "three"
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-
-module.exports = function TVStatic(canvasId) {
+export default function TVStatic(canvasId) {
     console.log("TV STATIC WARMING UP, CANVAS ID:", canvasId);
 
     const scene = new THREE.Scene();
@@ -12,9 +11,6 @@ module.exports = function TVStatic(canvasId) {
         0.1,
         1000
     );
-    console.log("canvas id", canvasId);
-    console.log("canvas by tag", document.getElementsByTagName("canvas"))
-    console.log("canvas by id", document.getElementById("tv-static"))
     const canvas = document.getElementById(canvasId);
     
     const renderer = new THREE.WebGLRenderer({
@@ -38,7 +34,7 @@ module.exports = function TVStatic(canvasId) {
     plane.rotateX(Math.PI / 2);
     scene.add(plane);
 
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    const controls = new OrbitControls(camera, renderer.domElement);
     controls.addEventListener("change", function(){ renderer.render(scene, camera); });
 
     renderer.render(scene, camera);
