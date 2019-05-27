@@ -15,9 +15,11 @@
     "watchify": "^3.11.1"
   },
   "dependencies": {
+    "jquery": "^3.4.1",
     "three": "^0.104.0"
   },
   "scripts": {
-    "dev": "browserify ./js/gleichsnerd.js -o ./dist/bundle.js -t [ babelify ] & cp index.html ./dist/index.html"
+    "dev": "browserify ./js/gleichsnerd.js -o ./dist/bundle.js -t [ babelify ] & cp index.html ./dist/index.html & cp style.css ./dist/style.css",
+    "watch": "watchify ./js/*.js -o ./dist/bundle.js"
   }
 }
