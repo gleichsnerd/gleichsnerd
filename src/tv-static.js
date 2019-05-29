@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 export default function TVStatic(canvasId) {
 
     // Fundamentals
@@ -86,17 +88,20 @@ export default function TVStatic(canvasId) {
         scene.add(planeMesh)
     }
 
-    function onWindowResize() {
-        width = window.innerWidth;
-        height = window.innerHeight;
+    const onWindowResize = _.debounce(
+        () => {
+            width = window.innerWidth;
+            height = window.innerHeight;
 
-        renderer.setSize(width, height);
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
 
-        initComposer();
-        initPasses();
-    }
+            initComposer();
+            initPasses();
+        },
+        100
+    );
 
     function animate() {
         let now = Date.now().valueOf();
