@@ -1,5 +1,6 @@
 import $ from "jquery";
 import TVStatic from "./tv-static"
+import TVScreen from "./tv-screen";
 
 function scrollToTop(id) {
     $('html, body').animate({
@@ -35,4 +36,5 @@ const autoScrollToHome = function() {
 //TODO - Cancel timeout if they use one of the tv buttons
 let homeScrollerTimeout = autoScrollToHome();
 
-TVStatic("tv-static");
+const tvScreen = new TVScreen("tv-screen");
+const tvStatic = new TVStatic("tv-static");

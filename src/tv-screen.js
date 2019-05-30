@@ -1,12 +1,11 @@
 import _ from "lodash";
 
-export default function TVStatic(canvasId) {
-
+export default function TVScreen(canvasId) {
     // Fundamentals
     let scene, camera, canvas, renderer, composer, width, height;
 
     // Passes
-    let renderPass, staticPass, copyPass;
+    let renderPass, filmPass, copyPass;
 
     // Time management
     let lastAnimateTime = Date.now().valueOf();
@@ -31,10 +30,11 @@ export default function TVStatic(canvasId) {
         canvas = document.getElementById(canvasId);
         renderer = new THREE.WebGLRenderer({
             antialias: true,
+            alpha: true,
             canvas: canvas
         });
         renderer.setSize(width, height);
-        renderer.setClearColor(0x0a0a0a);
+        renderer.setClearColor(0xffffff, 0.4);
 
         /** Setup composer and passes */
         initComposer();
@@ -49,24 +49,37 @@ export default function TVStatic(canvasId) {
     }
 
     function initPasses() {
-        if(composer == null) {
+        if (composer == null) {
             console.error("No composer initialized; you need to call initComposer before the first setup of your passes");
         }
 
         /** Setting up passes **/
         renderPass = new THREE.RenderPass(scene, camera);
 
-        staticPass = new THREE.ShaderPass(THREE.StaticShader);
-        staticPass.uniforms["amount"].value = 0.5;
-        staticPass.uniforms["size"].value = 1;
-        staticPass.uniforms["time"].value = 0.0;
+        filmPass = new THREE.FilmPass(
+            0.3,        // noise intensity
+            1,          // scanline intensity
+            1000,       // scanline count
+            false,      // grayscale
+        );
+        filmPass.uniforms["time"].value = 0.0;
 
         copyPass = new THREE.ShaderPass(THREE.CopyShader);
         copyPass.renderToScreen = true;
 
         composer.addPass(renderPass);
-        composer.addPass(staticPass);
+        composer.addPass(filmPass);
         composer.addPass(copyPass);
+    }
+
+    function channelSwitch() {
+        // TODO - Move this to its own file which will mount to another canvas
+        const planeGeometry = new THREE.PlaneGeometry(width, 1);
+        const planeMaterial = new THREE.MeshBasicMaterial({
+            color: 0x00ff00
+        });
+        const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
+        scene.add(planeMesh)
     }
 
     const onWindowResize = _.debounce(
@@ -89,7 +102,7 @@ export default function TVStatic(canvasId) {
         let delta = (now - lastAnimateTime) / 1000;
         lastAnimateTime = now;
 
-        staticPass.uniforms["time"].value += delta;
+        filmPass.uniforms["time"].value += delta;
 
         requestAnimationFrame(animate);
         composer.render(delta);
