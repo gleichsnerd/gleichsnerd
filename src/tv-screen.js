@@ -1,95 +1,188 @@
 import _ from "lodash";
 
 export default function TVScreen(canvasId) {
-    // Fundamentals
-    let scene, camera, canvas, renderer, composer, width, height;
-
-    // Passes
-    let renderPass, filmPass, copyPass;
-
-    // Time management
-    let lastAnimateTime = Date.now().valueOf();
-
-    function init() {
-        width = window.innerWidth;
-        height = window.innerHeight;
+    const init = () => {
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
 
         /** Setup the basics **/
-        scene = new THREE.Scene();
+        this.scene = new THREE.Scene();
+        this.clock = new THREE.Clock();
 
         // Since we're just projecting onto a plane, we can treat this as 2D to make it simple
-        camera = new THREE.OrthographicCamera(
-            60,             // FOV
-            width / height, // Aspect ratio
-            0,              // Near clip
-            1,              // Far clip
+        this.camera = new THREE.OrthographicCamera(
+            -this.width / 2,     // left
+            this.width / 2,      // right
+            this.height / 2,     // top
+            -this.height / 2,    // bottom
+            0,              // near
+            1            // far
         );
-        scene.add(camera);
+        // this.camera = new THREE.OrthographicCamera(- 1, 1, 1, - 1, 0, 1);
+        this.scene.add(this.camera);
+
+        // // Reposition the camera
+        // this.camera.position.set(-10, 0, 0);
+
+        // // Point the camera at a given coordinate
+        // this.camera.lookAt(new THREE.Vector3(0, 0, 0));
+        this.scene.add(this.camera);
 
         // Wiring up to our canvas element and setting up renderer
-        canvas = document.getElementById(canvasId);
-        renderer = new THREE.WebGLRenderer({
+        this.canvas = document.getElementById(canvasId);
+        this.renderer = new THREE.WebGLRenderer({
             antialias: true,
             alpha: true,
-            canvas: canvas
+            canvas: this.canvas
         });
-        renderer.setSize(width, height);
-        renderer.setClearColor(0xffffff, 0.4);
+        this.renderer.setSize(this.width, this.height);
+        this.transparentScanlineBackground();
 
         /** Setup composer and passes */
         initComposer();
         initPasses();
 
+        /** Get ready for some screen text **/
+        this.fontLoader = new THREE.FontLoader();
+        this.fontLoader.load("fonts/Kindly Rewind_Regular.json", (font) => {
+            this.font = font;
+        });
+
+        // var controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+        // controls.target.set(0, 0, 0);
+        // controls.update();
+
         /** Handle external events **/
         window.addEventListener('resize', onWindowResize, false);
     }
 
-    function initComposer() {
-        composer = new THREE.EffectComposer(renderer);
+    const initComposer = () => {
+        this.composer = new THREE.EffectComposer(this.renderer);
     }
 
-    function initPasses() {
-        if (composer == null) {
+    const initPasses = () => {
+        if (this.composer == null) {
             console.error("No composer initialized; you need to call initComposer before the first setup of your passes");
         }
 
         /** Setting up passes **/
-        renderPass = new THREE.RenderPass(scene, camera);
+        this.renderPass = new THREE.RenderPass(this.scene, this.camera);
 
-        filmPass = new THREE.FilmPass(
-            0.3,        // noise intensity
-            1,          // scanline intensity
-            1000,       // scanline count
+        this.filmPass = new THREE.FilmPass(
+            0.55,        // noise intensity (color skew)
+            0.75,        // scanline intensity
+            500,       // scanline count
             false,      // grayscale
         );
-        filmPass.uniforms["time"].value = 0.0;
+        this.filmPass.uniforms["time"].value = 0.0;
+        this.filmPass.clear = true;
 
-        copyPass = new THREE.ShaderPass(THREE.CopyShader);
-        copyPass.renderToScreen = true;
-
-        composer.addPass(renderPass);
-        composer.addPass(filmPass);
-        composer.addPass(copyPass);
+        this.composer.addPass(this.renderPass);
+        this.composer.addPass(this.filmPass);
     }
 
-    function channelSwitch() {
-        // TODO - Move this to its own file which will mount to another canvas
-        const planeGeometry = new THREE.PlaneGeometry(width, 1);
-        const planeMaterial = new THREE.MeshBasicMaterial({
-            color: 0x00ff00
+    this.transparentScanlineBackground = () => {
+        this.renderer.setClearColor(0xaaaaaa, 0.15);
+    }
+
+    this.opaqueScanlineBackground = () => {
+        this.renderer.setClearColor(0x000000, 1);
+    }
+
+    this.addText = (channelNumber) => {
+        this.textMaterial = new THREE.MeshBasicMaterial({
+            color: new THREE.Color(0x00ff00),
+            side: THREE.DoubleSide
         });
-        const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
-        scene.add(planeMesh)
+
+        let shapes = this.font.generateShapes(channelNumber, 100);
+        this.textGeometry = new THREE.ShapeBufferGeometry(shapes);
+        this.textGeometry.computeBoundingBox();
+
+        let xMid = -0.5 * (this.textGeometry.boundingBox.max.x - this.textGeometry.boundingBox.min.x);
+        // this.textGeometry.translate(xMid, 0, 0);
+
+        this.text = new THREE.Mesh(this.textGeometry, this.textMaterial);
+        this.text.position.x = -this.width/2.05;
+        this.text.position.y = this.height/2.7;
+        this.scene.add(this.text);
+    }
+
+    this.addFlickerLines = () => {
+        this.flickerGeometry = new THREE.PlaneBufferGeometry(this.width, 1);
+        this.flickerMaterial = new THREE.MeshBasicMaterial({
+            color: new THREE.Color(0xffffff),
+            side: THREE.FrontSide
+        });
+        
+        let numberOfGroups = Math.round(Math.random() * 10) + 3;
+        let bandHeight = Math.floor(this.height / numberOfGroups);
+
+        let lines = []
+
+        for (let n = 0; n < numberOfGroups; n++) {
+            let bias = Math.round(Math.random() * 10)
+            let bandStart = -this.height / 2 + n * bandHeight;
+            let bandEnd = -this.height / 2 + (n + 1) * bandHeight;
+
+            let bandWeight = 0;
+            let bandWeightMax = Math.ceil(bandHeight * 0.4 * Math.random());
+            
+            console.log(`
+            STARTING BAND #${n}
+            BAND START: ${bandStart}
+            BAND END: ${bandEnd}
+            BAND HEIGHT: ${bandHeight}
+            BAND WEIGHT MAX: ${bandWeightMax}
+            `)
+            
+            for(let y = bandStart; y < bandEnd; y++) {
+                
+                let rand = Math.random() + 0.025 * ((bandWeightMax - bandWeight) / 2)
+
+                if (bandWeight <= bandWeightMax && rand >= 1.2) {
+                    bandWeight++;
+                    let line = new THREE.Mesh(
+                        this.flickerGeometry,
+                        this.flickerMaterial
+                    )
+
+                    line.position.y = y
+                    lines.push(line);
+                    this.scene.add(line);
+                } else {
+                    bandWeight--;
+                }
+            } 
+            
+        }
+
+        return lines;
+    }
+
+    this.removeFlickerLines = (lines) => {
+        for(let line of lines) {
+            this.scene.remove(line);
+        }
+
+        this.flickerGeometry.dispose();
+        this.flickerMaterial.dispose();
+    }
+
+    this.removeText = () => {
+        this.scene.remove(this.text);
+        this.textGeometry.dispose();
+        this.textMaterial.dispose();
     }
 
     const onWindowResize = _.debounce(
         () => {
-            width = window.innerWidth;
-            height = window.innerHeight;
+            this.width = window.innerWidth;
+            this.height = window.innerHeight;
 
-            renderer.setSize(width, height);
-            camera.aspect = width / height;
-            camera.updateProjectionMatrix();
+            this.renderer.setSize(this.width, this.height);
+            this.camera.aspect = this.width / this.height;
+            this.camera.updateProjectionMatrix();
 
             initComposer();
             initPasses();
@@ -97,17 +190,49 @@ export default function TVScreen(canvasId) {
         100
     );
 
-    function animate() {
-        let now = Date.now().valueOf();
-        let delta = (now - lastAnimateTime) / 1000;
-        lastAnimateTime = now;
-
-        filmPass.uniforms["time"].value += delta;
-
+    const animate = () => {
         requestAnimationFrame(animate);
-        composer.render(delta);
+        
+        render();
+    }
+
+    const render = () => {
+        let delta = this.clock.getDelta();
+        this.filmPass.uniforms["time"].value += delta;
+
+        this.composer.render(delta);
     }
 
     init();
     animate();
+}
+
+TVScreen.prototype.channelSwitch = function channelSwitch(channelNumber, callback) {
+    this.opaqueScanlineBackground();
+
+    let i = 1;
+    let flashMax = Math.ceil(Math.random() * 5);
+    
+    let lines = this.addFlickerLines();
+    let channelTextTimeout = null
+    let flashInterval = window.setInterval( () => {
+        this.removeFlickerLines(lines);
+        lines = this.addFlickerLines();
+        if (i > flashMax) {
+            this.removeFlickerLines(lines);
+            window.clearInterval(flashInterval);
+            channelTextTimeout = window.setTimeout(() => {
+                this.addText(channelNumber);
+                window.setTimeout(() => {
+                    this.transparentScanlineBackground();
+                    callback();
+
+                    window.setTimeout(() => {
+                        this.removeText();
+                    }, 1500);
+                }, 2000);
+            }, 800)
+        }
+        i++;
+    }, 25);
 }

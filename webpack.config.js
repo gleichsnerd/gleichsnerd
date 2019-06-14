@@ -22,13 +22,18 @@ module.exports = {
     mode: "development",
     devtool: "source-map",
     devServer: {
-        contentBase: "./dist",
+        contentBase: path.join(__dirname, "dist"),
+        port: 8080
     },
     plugins: [
         new CopyWebpackPlugin([
             {
-                from: "./node_modules/three/build/three.min.js",
+                from: "./node_modules/three/build/three.js",
                 to: ""
+            },
+            {
+                from: "./deps/Kindly Rewind_Regular.json",
+                to: "fonts"
             }
         ])
     ],
