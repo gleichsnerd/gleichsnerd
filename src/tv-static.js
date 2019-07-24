@@ -56,17 +56,17 @@ export default function TVStatic(canvasId) {
         }
     }
 
-    function initPasses() {
+    function initPasses(reset = false) {
         if(composer == null) {
             console.error("No composer initialized; you need to call initComposer before the first setup of your passes");
         }
 
         /** Setting up passes **/
-        if(renderPass == null) {
+        if(renderPass == null || reset) {
             renderPass = new THREE.RenderPass(scene, camera);
         }
 
-        if(staticPass == null) {
+        if(staticPass == null || reset) {
             staticPass = new THREE.ShaderPass(THREE.StaticShader);
         }
 
@@ -106,6 +106,16 @@ export default function TVStatic(canvasId) {
         composer.render(delta);
     }
 
+    function resetPassesOverTime() {
+        
+        window.setInterval(function() {
+            console.log("refresh")
+            initComposer();
+            initPasses(true);
+        }, 60000)
+    }
+
     init();
     animate();
+    resetPassesOverTime();
 }

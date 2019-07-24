@@ -3,6 +3,8 @@ import TVStatic from "./tv-static"
 import TVScreen from "./tv-screen";
 import DVDScreen from "./dvd-screen";
 
+import css from "../style.less";
+
 function scrollToTop(id) {
     $('html, body').animate({
         scrollTop: $(`#${id}`).offset().top
