@@ -23,7 +23,8 @@ module.exports = {
     devtool: "source-map",
     devServer: {
         contentBase: path.join(__dirname, "dist"),
-        port: 8080
+        port: 8080,
+        historyApiFallback: true
     },
     plugins: [
         new CopyWebpackPlugin([
@@ -34,7 +35,7 @@ module.exports = {
             {
                 from: "./deps/Kindly Rewind_Regular.json",
                 to: "fonts"
-            }
+            },
         ])
     ],
     module: {
