@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>gleichsnerd</title>
+        <script src="vendors.js"></script>
+        <script src="three.js"></script>
+        <script src="three-controls.js"></script>
+        <script src="three-postprocessing.js"></script>
+        <script src="three-shaders.js"></script>
+        <script defer src="bundle.js"></script>
+    </head>
+    <body class="">
+        <canvas id="tv-screen" class="page screen scene-foreground">
+            <div>Uh oh 😢</div>
+            <p>Looks like your web browser doesn't support WebGL or the Canvas API.</p>
+        </canvas>
+        <canvas id="tv-static" class="page tv-static scene-background">
+        </canvas>
+        <canvas id="dvd-screen" class="page dvd-screen screen scene-background hidden">
+        </canvas>
+        <header>
+            <nav>
+                <ol>
+                    <li><a href="#home">gleichsnerd</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#portfolio">portfolio</a></li>
+                    <li><a href="#cv">cv</a></li>
+                    <li><a href="#contact">contact</a></li>
+                </ol>
+            </nav>
+        </header>
+        <nav style="display: none;" class="grid-item-menu">
+            <ol>
+                <li><a href="#home">gleichsnerd</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#portfolio">portfolio</a></li>
+                <li><a href="#cv">cv</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ol>
+        </nav>
+        <section id="home" class="page home-screen z-foreground grid-with-content">
+            <!-- <button class="grid-item-change-style vanilla" title="If you're sick of this nostalgia-fest styling, try out the vanilla version!">Style FF</button>
+            <button class="grid-item-change-style vanilla" title="Want to see something weird? Try out the retro styling!">Style RW</button> -->
+            <h1 class="grid-item-title">Welcome!</h1>
+            <div class="grid-item-content">
+                <span>I'm Adam, and this is my slice of the internet.</span>
+            </div>
+        </section>
+        <section id="about" class="page about-screen z-foreground grid-with-content">
+            <h1 class="grid-item-title">A Brief History of <code>gleichsnerd</code></h1>
+            <div class="grid-item-content">
+                <p>
+                    Hi there! My name is Adam Gleichsner, and I'm a frontend engineer and collector of hobbies based out of Columbus, Ohio, USA.
+                </p>
+                <p>
+                    By day, I'm the tech lead for frontend development at Paxata, a company that specializes in building the future of data preparation by putting the power in the hands of the business analysts. In non-PR lingo? I write a vast amount of code in a well-weathered codebase while helping to educate/mentor my teammates and drive our tech stack towards the future, bit by bit.
+                </p>
+                <p>
+                    Currently, my technical interests lie all across UI/UX/Frontend-land along with occasional oddball curiosities like WebGL/ThreeJS and Raspberry Pi projects. I've previously worked as a full-stack engineer so I try to stay sharp by building end-to-end eclectic and (hopefully) wholesome hobby projects that I can't wait to share.
+                </p>
+                <p>
+                    Besides being a software engineer and the holder of the coveted family alias, <code>gleichsnerd</code>, I'm also an avid camper, dabbling film photographer, occasional sculptor, and general purveyor of internet tomfoolery. I'm also prone to the occasional Netflix binge, love decompressing to video games, and have a small family of pets that my fiancée and I spoil without abandon.
+                </p>
+                <p>
+                    Right now this space is pretty sparse and is notably lacking a blog and mailing list, so if you'd like to follow my antics in the meantime, feel free to hit me up on <a href="https://twitter.com/gleichsnerd">twitter</a>, <a href="https://www.instagram.com/gleichsnerd/">instagram</a>, or through my <a href="#contact">contact page</a> if you're really going for that personal touch.
+                </p>
+            </div>
+        </section>
+        <section id="portfolio" class="page portfolio-screen">
+            <h1 class="grid-item-title">Some things I've worked on</h1>
+            <section>
+                <h2>Paxata</h2>
+                <span>It's dangerous to go alone, take this!</span>
+                <p>
+                    Operating in the data preparation space, Paxata allows business users to upload, investigate, and scrub incredibly large amounts of data in real time, giving them instant feedback as they shape, normalize, and filter to their hearts' content. While working here, I've collaborated with designers and teammates to undertake some colossal projects, from page redesigns to some of the largest features ever added to our product offering.
+                </p>
+                <h3>Adaptive Workload Management</h3>
+                <p></p>
+                <h3>Intelligent Automation</h3>
+                <p></p>
+            </section>
+            <section>
+                <h2>IMS by Cardinal Health</h2>
+                <span>Removing stress and hassle for patients and practitioners</span>
+                <p></p>
+            </section>
+            <section>
+                <h2>Battle Buddies</h2>
+                <span>Tired of basic JS tutorials? Give this AI death arena a try</span>
+                <p></p>
+            </section>
+            <section>
+                <h2>gleichsnerd</h2>
+                <span>You're looking at it, and now I'm going to talk about it!</span>
+                <p></p>
+            </section>
+            <section>
+                <h2>gnerd</h2>
+                <span>A personalized design system, coming soon to a theater near you</span>
+                <p>At just about every job I've ever worked, I've watched my coworkers struggle with wrangling the product's styling codebase.</p>
+            </section>
+        </section>
+        <section id="cv" class="page cv-screen">
+            <h1 class="grid-item-title">A more official list of what I've done</h1>
+            <h2>Education</h2>
+            <div>
+                <p>B.A. Computer Science, Case Western Reserve University (2012-2016)</p>
+            </div>
+            <h2>Internships</h2>
+            <h3>Laboratory Researcher, Case Western Reserve University (Summer 2013)</h3>
+            <h3>Software Engineering Intern, Flashstarts Inc. (Summer 2014)</h3>
+            <h3>Software Engineering Intern, Amazon Inc. (Summer 2015)</h3>
+            <h2>Career</h2>
+            <span>Ignoring pre-collegiate jobs for the sake of brevity</span>
+            <h3>Software Engineer (Freelance), Lufthouse Inc. (Aug 2014 - Jan 2015)</h3>
+            <h3>Software Engineer, Fuse by Cardinal Health (May 2016 - July 2017)</h3>
+            <h3>SDE II/Senior SDE, Paxata (July 2017 - Present)
+        </section>
+        <section id="contact" class="page contact-screen">
+            <h1 class="grid-item-title">Want to chat?</h1>
+        </section>
+    </body>
+</html>

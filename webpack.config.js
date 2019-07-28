@@ -1,5 +1,6 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
     entry: {
@@ -36,7 +37,12 @@ module.exports = {
                 from: "./deps/Kindly Rewind_Regular.json",
                 to: "fonts"
             },
-        ])
+        ]),
+        new HtmlWebpackPlugin({
+            hash: true,
+            filename: "index.html",
+            template: __dirname + "/index.html"
+        })
     ],
     module: {
         rules: [
