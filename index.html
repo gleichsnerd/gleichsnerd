@@ -69,53 +69,129 @@
         </section>
         <section id="portfolio" class="page portfolio-screen">
             <h1 class="grid-item-title">Some things I've worked on</h1>
-            <section>
+            <section id="portfolio-paxata">
                 <h2>Paxata</h2>
-                <span>It's dangerous to go alone, take this!</span>
+                <div>It's dangerous to go alone, take this!</div>
                 <p>
                     Operating in the data preparation space, Paxata allows business users to upload, investigate, and scrub incredibly large amounts of data in real time, giving them instant feedback as they shape, normalize, and filter to their hearts' content. While working here, I've collaborated with designers and teammates to undertake some colossal projects, from page redesigns to some of the largest features ever added to our product offering.
                 </p>
-                <h3>Adaptive Workload Management</h3>
-                <p></p>
-                <h3>Intelligent Automation</h3>
-                <p></p>
+                <h3 id="portfolio-paxata-awm">Adaptive Workload Management</h3>
+                <p>In an effort to reduce system costs, Paxata embarked on a journey to let business analysts hop into a project and start working with their data <em>before their imports finished</em>. Users could setup their rules and logic on a subset of data and then operationalize their work to run against files exponentially larger than their working set, driving server costs lower and lower.</p>
+                <p>My part in this project was working on a complete frontend refactor of our Data Library portion of the product in order to simultaneously support our traditional and new workflows. Collaborating with our resident designer, I helped create a DSL wrapper around the popular table framework, <a href="https://www.ag-grid.com/">ag-Grid</a>, in order to provide a dynamic list experience composed of reusable table cells.</p>
+                <h3 id="portfolio-paxata-intelligent-autmation">Intelligent Automation</h3>
+                <p>For awhile now, Paxata has offered a single unit automation system. Want to bring in a MySQL table every Thursday? Done. How about crunching this project full of form data normalization? You got it. But most of the time, businesses don't need analytics in isolation; building solid business intelligence requires pulling, cleaning, morphing, and merging data from boundless sources. So why should you only be able to automate one piece at a time?</p>
+                <p>Enter Intelligent Automation, one of Paxata's most ambitious feature offerings to date. Based on how your data and projects interact, we will <em>intelligently</em> (see what I did there?) construct an entire graph of interwoven projects that you can configure and run as a single flow.</p>
+                <p>This happened to be the first major feature since I joined as the tech lead for our newly minted UI Team, which entailed mentoring and bringing our other frontend engineers up to speed on the current patterns and paradigms we use in our tech stack as well as architecting a totally new space in our application. We went through multiple phases of ideation, scoping, and tinkering to finally land with a product that could be launched in phased releases, progressively offering more and more functionality based on the target launch dates for some of our biggest customers.</p>
+                <footer>
+                    <div><a href="https://www.paxata.com/">Paxata Homepage</a></div>
+                    <div>Built with AngularJS, CoffeeScript, Less, Scala, and Java</div>
+                </footer>
             </section>
-            <section>
+            <section id="portfolio-ims">
                 <h2>IMS by Cardinal Health</h2>
-                <span>Removing stress and hassle for patients and practitioners</span>
-                <p></p>
+                <div>Removing stress and hassle for patients and practitioners</div>
+                <p>IMS, or Inventory Management Solutions, is an all-in-one offering to aid in inventory management and drug administration for medical clinics all across the USA. By tracking patient appointments, anticipated prescriptions, and overall stock across entire fleets of pharmaceutical cabinets, IMS could manage a hospital's entire inventory and predict when new orders needed to be placed.</p>
+                <p>The software came in a two-fold package: a webapp that let hospital administrators or staff managers handle reporting, auditing, and ordering, and an embedded touchscreen application that lived on the cabinet machines which orchestrated drug dispersal, patient schedules, and inventory tracking in order to help practitioners treat their patients easily and quickly.</p>
+                <footer>
+                    <div><a href="https://www.cardinalhealth.com/en/services/specialty-physician-practice/vitalsource-gpo/oncology-solutions/operational-solutions/inventory-management-solutions.html">IMS Homepage</a></div>
+                    <div>Built with Ember.js, Java, and SCSS</div>
+                </footer>
             </section>
-            <section>
+            <section id="portfolio-battle-buddies">
                 <h2>Battle Buddies</h2>
-                <span>Tired of basic JS tutorials? Give this AI death arena a try</span>
-                <p></p>
+                <div>Tired of basic JS tutorials? Give this AI death arena a try</div>
+                <p>Built for Fuse's 2017 Code Camp, Battle Buddies is a multiplayer programming battle royale game for kids decently familiar with JavaScript who want to learn a smattering of HTTP requests, promises, and game theory. Every turn (about every second), a player's program would determine their best choice of action based on their bot's surrounding 2D environment, submit it to the server, and wait for the turn results before repeating the process over and over until only one bot was left standing.</p>
+                <p>The course proved to be a bit beefier than a day's worth of work, but by the end of the 13 hour day, everyone had semi-functional bots running around on the battlefield, trying for their chance for digital glory.</p>
+                <p>And I was tired. Very, very tired.</p>
+                <footer>
+                    <div><a href="https://github.com/gleichsnerd/battle-buddies-server">Ruby server source code</a></div>
+                    <div><a href="https://github.com/gleichsnerd/battle-buddies-client">Example player source code</a></div>
+                    <div><a href="https://github.com/kylegosen/FuseCodeCamp17UI">Game visualizer source code</a> by my coworker in crime at the time, <a href="https://github.com/kylegosen">Kyle Gosen</a></div>
+                    <div>Built with Ruby, Sinatra, and Ember.js</div>
+                </footer>
             </section>
-            <section>
+            <section id="portfolio-gleichsnerd">
                 <h2>gleichsnerd</h2>
-                <span>You're looking at it, and now I'm going to talk about it!</span>
-                <p></p>
+                <div>You're looking at it, and now I'm going to talk about it!</div>
+                <p>Most of this will seem like giberish unless you check out the retro styling portion of the website. Fair warning, there are a couple flashy elements at times and you <em>will</em> need to be on a browser (desktop is best) that supports WebGL and is JavaScript enabled.</p>
+                <p>I don't really understand how I got to this point, but I do remember waking up one Saturday morning thinking "what if I made a website that felt like before I even got hooked on the internet?" I fell back asleep for at least a few more hours, but I couldn't escape this idea of a wacky 2000s-era DVD experience to house my much-needed personal website and portfolio. I always wanted to dive into web graphics, and this was the perfect kick in the ass to get me going.</p>
+                <p>Of course, the retro version wasn't going to be everyone's glass of Tang and the eclectic nature of it would be inherently inaccessible, so I wanted to make a slimmed down modern version that focused on a clean, lightweight, and accessible experience that has just as much care put into it as my weird aesthetic experiment.</p>
+                <footer>
+                    <div><a href="https://github.com/gleichsnerd/gleichsnerd">Source code</a></div>
+                    <div>Built with HTML, Less, plain old JavaScript, a dash of jQuery, ThreeJS, and Webpack.</div>
+                    <div>Channel switching font in the retro mode is <a href="https://www.fontspace.com/stuff-on-your-thing/kindly-rewind">Kindly Rewind by Stuff On Your Thing</a>.</div>
+                </footer>
             </section>
-            <section>
+            <section id="portfolio-gnerd">
                 <h2>gnerd</h2>
-                <span>A personalized design system, coming soon to a theater near you</span>
-                <p>At just about every job I've ever worked, I've watched my coworkers struggle with wrangling the product's styling codebase.</p>
+                <div>A personalized design system, coming soon to a theater near you</div>
+                <p>I think design systems are absolutely <em>fascinating.</em> After struggling with obtuse SCSS codebases or valiant styling DSLs that fall short of the mark at every job I've worked, I feel like Charlie staring through the window at a chocolate bar, so close but unable to obtain it (reference to the 1971 Gene Wilder classic, <cite><a href="https://www.imdb.com/title/tt0067992/">Willy Wonka & the Chocolate Factory</a></cite>).</p>
+                <p>So, seeing that a design system isn't in my immediate professional future, I want to make one to use on my hobby projects.</p>
+                <footer>
+                    <div>Eventually going to be built with Storybook, Less, and a variety of different JS frameworks</div>
+                </footer>
             </section>
         </section>
         <section id="cv" class="page cv-screen">
             <h1 class="grid-item-title">A more official list of what I've done</h1>
+            <div>If you're looking for a downloadable résumé, please feel free to <a href="#contact">reach out!</a></div>
             <h2>Education</h2>
             <div>
-                <p>B.A. Computer Science, Case Western Reserve University (2012-2016)</p>
+                <p>B.A. Computer Science, Case Western Reserve University (Fall 2012- Spring 2016)</p>
             </div>
             <h2>Internships</h2>
-            <h3>Laboratory Researcher, Case Western Reserve University (Summer 2013)</h3>
+            <h3>Research Assistant, Case Western Reserve University (Summer 2013)</h3>
+            <p>Working in the Mixing Science and Technology group led by Dr. Ica Manas-Zloczower, I researched Brownian diffusion in a polyHIPE systems by programming simulations of a tracer particle Stochastically moving through virtual space.</p>
+            <footer>
+                <div><a href="https://github.com/gleichsnerd/polyHIPE-diffusion">Source code</a></div>
+                <div>Technologies Used: Matlab</div>
+            </footer>
             <h3>Software Engineering Intern, Flashstarts Inc. (Summer 2014)</h3>
+            <p>Over a twelve week period, I collaborated with two startup companies in a fast-paced Agile environment to help develop their flagship product offerings.</p>
+            <h4>Bracketr</h4>
+            <p>Bringing a fresh take to marketing campaigns, Bracketr provided a fully-customizable competition bracket engine that would let brand customers vote in product tournaments and engage consumers with their online media.</p>
+            <footer>
+                <div>Technologies used: JavaScript, Ember.js</div>
+            </footer>
+            <h4>Lufthouse</h4>
+            <p>Harnessing the power of Bluetooth LE beacons and the convenience of an iOS app, Lufthouse transforms museum exhibits into immersive and interactive experiences by bringing interesting and insightful information into the palm of the user.</p>
+            <footer>
+                <div><a href="https://github.com/joanieS/lufthouse-ios">iOS app source code</a></div>
+                <div>Technologies used: iOS</div>
+            </footer>
             <h3>Software Engineering Intern, Amazon Inc. (Summer 2015)</h3>
+            <p>Under the guidance of the Storage Solutions team, I designed and built a website to help alleviate on-call pains by presenting high-level service diagnostics with the ability to drill down into individual services to gather useful information during an outage investigation.</p>
+            <footer>
+                <div>Technologies used: HTML, CSS, Java, Play</div>
+            </footer>
             <h2>Career</h2>
-            <span>Ignoring pre-collegiate jobs for the sake of brevity</span>
             <h3>Software Engineer (Freelance), Lufthouse Inc. (Aug 2014 - Jan 2015)</h3>
+            <p>Continuing my work from the summer, I investigated new feature requests involving augmented reality and built a demo before the company unfortunately had to shut its doors in early 2015.</p>
+            <footer>
+                <div><a href="https://github.com/gleichsnerd/Vuforia-Demo">Modified Vuforia demo source code</a></div>
+                <div>Technologies used: iOS, Vuforia Engine</div>
+            </footer>
             <h3>Software Engineer, Fuse by Cardinal Health (May 2016 - July 2017)</h3>
-            <h3>SDE II/Senior SDE, Paxata (July 2017 - Present)
+            <p>As a member of the Mystery Machine team, we were responsible for maintaining and improving <a href="#portfolio-ims">IMS</a>, Cardinal Health's inventory management offering for oncology and rheumatology clinics. This involved the fullest of fullstack work, including but not limited to:
+                <ul>
+                    <li>Managing the deployment pipeling</li>
+                    <li>Server provisioning</li>
+                    <li>Writing hardware drivers</li>
+                    <li>Database administration and ETL</li>
+                    <li>Building out the actual applications</li>
+                    <li>Maintaining our own styling codebase</li>
+                </ul>
+            </p>
+            <p>Although I was exposed to all of this, I became the resident styling guru for the team and a hardcore Ember machine while working in a pair-programming Agile environment.</p>
+            <footer>
+                <div>Technologies used: JavaScript, Ember.js, Jasmine, Mocha, Handlebars, SCSS, Java, MySQL, Bash</div>
+            </footer>
+            <h3>SDE II/Senior SDE, Paxata (July 2017 - Present)</h3>
+            <div>Promoted to Senior SDE July 2018</div>
+            <p>Originally staring as a Fullstack Engineer on the Library team where I worked on <a href="#portfolio-paxata-awm">Adaptive Workflow Management</a>, I became the tech lead for our new UI Team in July 2018 which is still my role to this day. </p>
+            <footer>
+                <div>Technologies used: CoffeeScript, JavaScript, AngularJS, Grunt, Mocha, HTML, Less, Scala, Java, MongoDB</div>
+            </footer>
         </section>
         <section id="contact" class="page contact-screen">
             <h1 class="grid-item-title">Want to chat?</h1>
