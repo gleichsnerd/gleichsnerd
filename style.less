@@ -28,7 +28,7 @@ body {
     }
 
     .scene-background {
-        z-index: -20;
+        z-index: -20; 
     }
 
     .hidden {
@@ -37,7 +37,12 @@ body {
 
     .grid-with-content {
         display: grid;
-        grid: "channel . change-style" 1.5fr ". title ." 2fr ". content ." 5fr ". menu ." 1.5fr ". . ." 1fr e("/") 1fr 8fr 1fr;
+        grid: "channel . change-style" 1.5fr 
+              ". title ." 2fr 
+              ". content ." 5fr 
+              ". menu ." 1.5fr 
+              ". . ." 1fr 
+              e("/") 1fr 8fr 1fr;
     }
 
     .grid-item-change-style {
@@ -76,11 +81,33 @@ body {
                 "sub-menu content content" 5fr
                 "menu menu menu"        1fr
                 ". . ."                 1fr
-                / 1fr 8fr 1fr;
+                e("/") 1fr 8fr 1fr;
     }
 }
 
 .modern {
+
+    .grid-with-content {
+        display: grid;
+        grid: ". nav nav" 10vh 
+              ". body side-content" 1fr 
+              e("/") 10vh 2fr 1fr;
+    }
+
+    header nav {
+        grid-area: nav;
+        background-color: pink;
+    }
+
+    .grid-item-title {
+        grid-area: body;
+        background-color: green;
+    }
+
+    .grid-item-content {
+        grid-area: body;
+        background-color: aqua;
+    }
 
     .grid-item-menu {
         display: none;
