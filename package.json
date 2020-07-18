@@ -2,34 +2,24 @@
   "name": "gleichsnerd",
   "version": "1.0.0",
   "description": "Homepage for Adam Gleichsner",
-  "main": "index.js",
   "author": "gleichsnerd <gleichsnerd@gmail.com>",
   "license": "GPL-3",
   "private": true,
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "copy-webpack-plugin": "^5.0.3",
-    "css-loader": "^3.0.0",
     "eslint": "^5.16.0",
-    "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.4.1"
+    "watch": "^1.0.2"
   },
   "dependencies": {
-    "html-webpack-plugin": "^3.2.0",
-    "jquery": "^3.4.1",
-    "less": "^3.9.0",
-    "less-loader": "^5.0.0",
-    "lodash": "^4.17.11",
-    "mini-css-extract-plugin": "^0.8.0",
-    "style-loader": "^0.23.1",
-    "three": "^0.104.0"
+    "@tailwindcss/typography": "^0.2.0",
+    "tailwindcss": "^1.5.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
-    "build": "webpack",
-    "start": "webpack-dev-server --color"
+    "clean": "rm -rf ./dist && mkdir ./dist",
+    "build:html": "cp src/index.html ./dist/index.html",
+    "build:public": "cp -r public dist/",
+    "build:css": "tailwindcss build ./src/style.css -o ./dist/style.css",
+    "build:lite": "yarn build:html && yarn build:css",
+    "build": "yarn clean && yarn build:lite && yarn build:public",
+    "watch": "watch 'yarn build:lite' ./src"
   }
 }
