@@ -1,39 +1,39 @@
 @font-face {
     font-family: '"Space Grotesk"';
-    src: url('public/fonts/spacegrotesk-light-webfont.woff2') format('woff2'),
-         url('public/fonts/spacegrotesk-light-webfont.woff') format('woff');
+    src: url('/public/fonts/spacegrotesk-light-webfont.woff2') format('woff2'),
+         url('/public/fonts/spacegrotesk-light-webfont.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: '"Space Grotesk"';
-    src: url('public/fonts/spacegrotesk-regular-webfont.woff2') format('woff2'),
-         url('public/fonts/spacegrotesk-regular-webfont.woff') format('woff');
+    src: url('/public/fonts/spacegrotesk-regular-webfont.woff2') format('woff2'),
+         url('/public/fonts/spacegrotesk-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: '"Space Grotesk"';
-    src: url('public/fonts/spacegrotesk-medium-webfont.woff2') format('woff2'),
-         url('public/fonts/spacegrotesk-medium-webfont.woff') format('woff');
+    src: url('/public/fonts/spacegrotesk-medium-webfont.woff2') format('woff2'),
+         url('/public/fonts/spacegrotesk-medium-webfont.woff') format('woff');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: '"Space Grotesk"';
-    src: url('public/fonts/spacegrotesk-semibold-webfont.woff2') format('woff2'),
-         url('public/fonts/spacegrotesk-semibold-webfont.woff') format('woff');
+    src: url('/public/fonts/spacegrotesk-semibold-webfont.woff2') format('woff2'),
+         url('/public/fonts/spacegrotesk-semibold-webfont.woff') format('woff');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: '"Space Grotesk"';
-    src: url('public/fonts/spacegrotesk-bold-webfont.woff2') format('woff2'),
-         url('public/fonts/spacegrotesk-bold-webfont.woff') format('woff');
+    src: url('/public/fonts/spacegrotesk-bold-webfont.woff2') format('woff2'),
+         url('/public/fonts/spacegrotesk-bold-webfont.woff') format('woff');
     font-weight: 700;
     font-style: normal;
 }
