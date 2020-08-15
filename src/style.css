@@ -45,14 +45,18 @@
 @tailwind utilities;
 
 html {
+    @apply bg-primary;
     scroll-behavior: smooth;
+    scroll-snap-points-y: 100vh;
+    scroll-snap-destination: 0 0;
     scroll-snap-type: y mandatory;
+    scroll-snap-type: mandatory;
     overflow-y: scroll;
     scroll-padding-bottom: 2rem;
 }
 
 section {
-    @apply flex flex-col min-h-screen flex-shrink-0 items-center justify-center p-6 leading-normal;
+    @apply bg-white flex flex-col min-h-screen flex-shrink-0 items-center justify-center p-6 leading-normal;
     scroll-snap-align: start;
 }
 
