@@ -2,64 +2,56 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
         <title>gleichsnerd</title>
         <link href="./style.css" rel="stylesheet" type="text/css">
         <script src="https://kit.fontawesome.com/1d81205b3d.js" crossorigin="anonymous"></script>
     </head>
-    <body class="min-h-screen">
-        <div class="scroll-container">
-            <section class="flex flex-col min-h-screen items-center justify-center welcome-section p-6">
-                <h1 class="prose flex flex-col flex-grow w-full justify-center">
-                    <span class="block font-bold welcome">Welcome!</span>
-                    <span class="block font-light salutation">It's nice to meet you 😊</span>
-                </h1>
-                <div class="text-white flex justify-center">
-                    <a href="#about" class="flex flex-col items-center my-4">
-                        <div class="scroll-text">Who am I?</div>
-                        <i class="fas fa-arrow-down text-white fa-2x"></i>
-                    </a>
+    <body>
+            <section class="bg-primary">
+                <div class="flex flex-col flex-grow justify-center w-full">
+                    <p class="block font-bold text-white text-6xl">Welcome!</p>
+                    <p class="block font-light text-white text-2xl">It's nice to meet you 😊</p>
                 </div>
             </section>
-            <section id="about" class="flex flex-col flex-grow items-center justify-center">
-                <div class="prose flex flex-col flex-grow justify-center">
+            <section id="about">
+                <div class="flex flex-col flex-grow justify-center">
+                    <h2 class="text-primary">Who am I?</h2>
                     <p>
-                        My name is Adam Gleichsner <sup><a href="https://enbyeducation.carrd.co/">(they/them)</a></sup>, but you can also find me across the internet as <samp>gleichsnerd</samp>.
-                        I'm a software engineer based out of Columbus, OH, currently working at DataRobot.<sup>(<a href="#legal">legal disclaimer</a>)</sup>
+                        My name is Adam Gleichsner <sup>(<a href="https://enbyeducation.carrd.co/">they/them</a>)</sup>, but you can also find me across the internet as <samp>gleichsnerd</samp>.
+                        I'm a software engineer based out of Columbus, OH, currently working at DataRobot<sup>(<a href="#legal">legal disclaimer</a>)</sup>.
                     </p>
                     <p>
-                        My professional work resides more on the frontend, where I lead frontend feature teams from the technical side of things by designing architecture, helping my fellow team members through continued learning and mentoring (and they teach me cool stuff in the process), and coding alongside them while providing feedback throughout the entire product life cycle.
-                        Although I personally feel like I shine the brightest when working on the frontend, I'm also comfortable diving into the nitty gritty depths of the server and have experience working throughout the tech stack.
-                        My favorite projects are ones that push the boundaries of what web apps can do, have intricate performance concerns, or ultimately creates something that enables others to make <b>really cool stuff</b> that brings joy.
+                        My professional work resides mostly on the frontend, where I've helped build and maintain webapps written in React, AngularJS, and Ember.js. Most days, my days consist of leading frontend feature teams, whether that's by designing architecture, guiding my fellow teammates through continued group learning and mentoring, or coding alongside them.
+                        Although I personally feel like I shine the brightest when working in the browser, I'm also comfortable diving into the nitty gritty depths of the server and have experience working throughout the tech stack.
+                        My favorite projects are ones that push the boundaries of what webapps can do, have intricate performance concerns, or ultimately creates something that enables others to make <b>really cool stuff</b>.
                     </p>
                     <p>
                         Outside of work, I try to find a nice balance between technical and non-technical hobbies.
-                        Lately, I've been entranced with <a href="https://threejs.org/">three.js</a> and <a href="https://www.blender.org/">3D modeling in Blender</a>, which has also led me to pick back up real-life sculpting (I use <a href="https://www.monstermakers.com/monster-clay/">Monster Clay</a> if you're into that sort of thing).
+                        Lately, I've been entranced with <a href="https://threejs.org/">three.js</a> and <a href="https://www.blender.org/">3D modeling in Blender</a>, which has also led me to pick back up real-world physical sculpting (I use <a href="https://www.monstermakers.com/monster-clay/">Monster Clay</a> if you're into that sort of thing).
                     </p>
                 </div>
-                <a href="#coming-soon" class="flex flex-col items-center text-primary mt-8 mb-16">
-                    <div class="scroll-text">Want to see more?</div>
-                    <i class="fas fa-arrow-down fa-2x"></i>
-                </a>
             </section>
             <section id="coming-soon" class="flex flex-col min-h-screen items-center justify-center">
-                <div class="prose flex flex-col flex-grow justify-center">
+                <div class="flex flex-col flex-grow justify-center">
+                    <h2 class="text-primary">Want to see more?</h2>
                     <p class="flex items-center">
                         You'll have to wait a bit first 😏
-                        <br/>
+                    </p>
+                    <p>
                         I'll be growing this website over time, but if you want to chat, professionally or not, feel free to hit me up through Twitter or LinkedIn. You can also check out what I've been up to coding-wise on GitHub.
                     </p>
                     <div class="flex justify-center mt-8 space-x-3">
-                        <a href="https://twitter.com/gleichsnerd"><i class="fab fa-twitter-square fa-2x" title="Twitter"></i></a>
-                        <a href="https://www.linkedin.com/in/gleichsnerd/"><i class="fab fa-linkedin fa-2x" title="LinkedIn"></i></a>
-                        <a href="https://github.com/gleichsnerd"><i class="fab fa-github-square fa-2x" title="GitHub"></i></a>
+                        <a href="https://twitter.com/gleichsnerd"><i class="fab fa-twitter-square fa-2x text-primary" title="Twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/gleichsnerd/"><i class="fab fa-linkedin fa-2x text-primary" title="LinkedIn"></i></a>
+                        <a href="https://github.com/gleichsnerd"><i class="fab fa-github-square fa-2x text-primary" title="GitHub"></i></a>
                     </div>
                 </div>
-                <footer class="flex-col prose leading-none">
+                <footer class="flex-col leading-none mb-6">
                     <small id=legal class="my-3">
                         All views and opinions expressed on this website are solely my own and do not reflect those held by DataRobot or any of my previous employers.
                     </small>
                 </footer>
             </section>
-        </div>
     </body>
 </html>

@@ -44,52 +44,42 @@
 
 @tailwind utilities;
 
-.scroll-container {
-    @apply h-screen flex flex-grow flex-col;
+html {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
-    /* scroll-padding: 2rem; */
-}
-
-.welcome-section {
-    background-color: theme('colors.primary');
-}
-
-.welcome {
-    @apply text-6xl text-white;
-}
-
-.salutation {
-    @apply text-2xl text-white;
-}
-
-.scroll-text {
-    @apply text-xl font-medium;
+    scroll-padding-bottom: 2rem;
 }
 
 section {
-    @apply flex flex-col min-h-screen flex-shrink-0 items-center justify-center p-6;
+    @apply flex flex-col min-h-screen flex-shrink-0 items-center justify-center p-6 leading-normal;
     scroll-snap-align: start;
 }
 
+section > div,
 footer {
-    @apply mb-6;
+    max-width: 65ch;
+}
+
+section h2 {
+    @apply text-4xl font-bold mb-10;
 }
 
 section p {
     @apply text-sm;
-    color: 
+    max-width: 65ch;
+}
+
+section p+p {
+    @apply mt-5;
+}
+
+section a {
+    @apply text-primary underline;
 }
 
 @screen sm {
     section p {
         @apply text-base;
-    }
-}
-
-@screen md {
-    section p {
-        @apply text-lg;
     }
 }
