@@ -52,7 +52,7 @@ html {
 }
 
 section {
-    @apply flex flex-col min-h-screen h-screen flex-shrink-0 items-center justify-center p-6 leading-normal;
+    @apply flex flex-col min-h-screen flex-shrink-0 items-center justify-center p-6 leading-normal;
     scroll-snap-align: start;
 }
 
