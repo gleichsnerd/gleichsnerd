@@ -48,11 +48,11 @@ html {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
-    /* scroll-padding: 2rem; */
+    scroll-padding-bottom: 2rem;
 }
 
 section {
-    @apply flex flex-col min-h-screen h-screen flex-shrink-0 items-center justify-center p-6 leading-7;
+    @apply flex flex-col min-h-screen h-screen flex-shrink-0 items-center justify-center p-6 leading-normal;
     scroll-snap-align: start;
 }
 
@@ -71,7 +71,7 @@ section p {
 }
 
 section p+p {
-    @apply mt-7;
+    @apply mt-5;
 }
 
 section a {
