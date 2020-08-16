@@ -1,57 +1,260 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>gleichsnerd</title>
-        <link href="./style.css" rel="stylesheet" type="text/css">
-        <script src="https://kit.fontawesome.com/1d81205b3d.js" crossorigin="anonymous"></script>
-    </head>
-    <body class="max-h-screen">
-            <section class="bg-primary">
-                <div class="flex flex-col flex-grow justify-center w-full">
-                    <p class="block font-bold text-white text-6xl">Welcome!</p>
-                    <p class="block font-light text-white text-2xl">It's nice to meet you 😊</p>
-                </div>
-            </section>
-            <section id="about">
-                <div class="flex flex-col flex-grow justify-center">
-                    <h2 class="text-primary">Who am I?</h2>
-                    <p>
-                        My name is Adam Gleichsner <sup>(<a href="https://enbyeducation.carrd.co/">they/them</a>)</sup>, but you can also find me across the internet as <samp>gleichsnerd</samp>.
-                        I'm a software engineer based out of Columbus, OH, currently working at DataRobot<sup>(<a href="#legal">legal disclaimer</a>)</sup>.
-                    </p>
-                    <p>
-                        My professional work resides mostly on the frontend, where I've helped build and maintain webapps written in React, AngularJS, and Ember.js. Most days, my days consist of leading frontend feature teams, whether that's by designing architecture, guiding my fellow teammates through continued group learning and mentoring, or coding alongside them.
-                        Although I personally feel like I shine the brightest when working in the browser, I'm also comfortable diving into the nitty gritty depths of the server and have experience working throughout the tech stack.
-                        My favorite projects are ones that push the boundaries of what webapps can do, have intricate performance concerns, or ultimately creates something that enables others to make <b>really cool stuff</b>.
-                    </p>
-                    <p>
-                        Outside of work, I try to find a nice balance between technical and non-technical hobbies.
-                        Lately, I've been entranced with <a href="https://threejs.org/">three.js</a> and <a href="https://www.blender.org/">3D modeling in Blender</a>, which has also led me to pick back up real-world physical sculpting (I use <a href="https://www.monstermakers.com/monster-clay/">Monster Clay</a> if you're into that sort of thing).
-                    </p>
-                </div>
-            </section>
-            <section id="coming-soon" class="flex flex-col min-h-screen items-center justify-center">
-                <div class="flex flex-col flex-grow justify-center">
-                    <h2 class="text-primary">Want to see more?</h2>
-                    <p class="flex items-center">
-                        You'll have to wait a bit first 😏
-                    </p>
-                    <p>
-                        I'll be growing this website over time, but if you want to chat, professionally or not, feel free to hit me up through Twitter or LinkedIn. You can also check out what I've been up to coding-wise on GitHub.
-                    </p>
-                    <div class="flex justify-center mt-8 space-x-3">
-                        <a href="https://twitter.com/gleichsnerd"><i class="fab fa-twitter-square fa-2x text-primary" title="Twitter"></i></a>
-                        <a href="https://www.linkedin.com/in/gleichsnerd/"><i class="fab fa-linkedin fa-2x text-primary" title="LinkedIn"></i></a>
-                        <a href="https://github.com/gleichsnerd"><i class="fab fa-github-square fa-2x text-primary" title="GitHub"></i></a>
-                    </div>
-                </div>
-                <footer class="flex-col leading-none mb-6">
-                    <small id=legal class="my-3">
-                        All views and opinions expressed on this website are solely my own and do not reflect those held by DataRobot or any of my previous employers.
-                    </small>
-                </footer>
-            </section>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>gleichsnerd</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://kit.fontawesome.com/1d81205b3d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="max-h-screen">
+    <section class="bg-primary">
+      <div class="flex flex-col flex-grow justify-center w-full">
+        <p class="block font-bold text-white text-6xl">Welcome!</p>
+        <p class="block font-light text-white text-2xl">
+          It's nice to meet you 😊
+        </p>
+      </div>
+    </section>
+    <section id="about">
+      <div class="flex flex-col flex-grow justify-center">
+        <h2 class="text-primary">Who am I?</h2>
+        <p>
+          My name is Adam Gleichsner
+          <sup>(<a href="https://enbyeducation.carrd.co/">they/them</a>)</sup>,
+          but you can also find me across the internet as
+          <samp>gleichsnerd</samp>. I'm a software engineer based out of
+          Columbus, OH, currently working at DataRobot<sup
+            >(<a href="#legal">legal disclaimer</a>)</sup
+          >.
+        </p>
+        <p>
+          My professional work resides mostly on the frontend, where I've helped
+          build and maintain webapps written in React, AngularJS, and Ember.js.
+          Most days, my days consist of leading frontend feature teams, whether
+          that's by designing architecture, guiding my fellow teammates through
+          continued group learning and mentoring, or coding alongside them.
+          Although I personally feel like I shine the brightest when working in
+          the browser, I'm also comfortable diving into the nitty gritty depths
+          of the server and have experience working throughout the tech stack.
+          My favorite projects are ones that push the boundaries of what webapps
+          can do, have intricate performance concerns, or ultimately creates
+          something that enables others to make <b>really cool stuff</b>.
+        </p>
+        <p>
+          Outside of work, I try to find a nice balance between technical and
+          non-technical hobbies. Lately, I've been entranced with
+          <a href="https://threejs.org/">three.js</a> and
+          <a href="https://www.blender.org/">3D modeling in Blender</a>, which
+          has also led me to pick back up real-world physical sculpting (I use
+          <a href="https://www.monstermakers.com/monster-clay/">Monster Clay</a>
+          if you're into that sort of thing).
+        </p>
+      </div>
+    </section>
+    <section id="portfolio">
+      <div class="flex flex-col flex-grow justify-center">
+        <h2 class="text-primary">What have I worked on?</h2>
+      </div>
+      <div class="flex flex-row flex-wrap justify-center max-w-full">
+        <div
+          class="max-w-sm rounded overflow-hidden shadow flex flex-col m-6"
+        >
+          <img
+            src="./public/ch-ims.jpg"
+            alt="Inventory Management System by Cardinal Health"
+          />
+          <div class="px-6 py-4">
+            <div class="font-bold text-lg sm:text-xl mb-2 text-primary">IMS by Cardinal Health</div>
+            <p class="text-gray-700 text-xs sm:text-sm">
+              An inventory management solution that integrates into drug
+              dispensing cabinets in order to provide real-time stock counts and
+              accurate ahead-of-time ordering for any number of patients.
+            </p>
+            <p class="text-gray-700 text-xs sm:text-sm">
+              Although I worked across the entire stack for this product, from
+              frontend all the way to server provisioning and dev ops support, I
+              was primarily responsible for the frontmost-frontend work,
+              eventually becoming one of the main JavaScript contributors and
+              owning the styling system.
+            </p>
+          </div>
+          <div class="px-6 py-4 flex flex-row flex-wrap">
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >Ember.js</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >JavaScript</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >HTML/SCSS</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >Java</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >MySQL</span
+            >
+          </div>
+        </div>
+        <div
+          class="max-w-sm rounded overflow-hidden shadow flex flex-col m-6"
+        >
+          <img
+            src="./public/battle-buddies.png"
+            alt="Battle Buddies for Fuse Code Camp 2017"
+          />
+          <div class="px-6 py-4">
+            <div class="font-bold text-lg sm:text-xl mb-2 text-primary">Battle Buddies</div>
+            <p class="text-gray-700 text-xs sm:text-sm">
+              Built for a youth coding camp, Battle Buddies is a turn-based
+              multiplayer battle royale simulator designed for students to write
+              their own player action logic and compete against their friends
+              for fame and glory!
+            </p>
+            <p class="text-gray-700 text-xs sm:text-sm">
+              I thankfully managed to enlist help from a coworker when building out this course (I was a bit too excited when I volunteered and overestimated the scale 😅). My main contributions were building out the backend game server along with drafting the lesson plan and making a handful of sample bots for the students to play against.
+            </p>
+          </div>
+          <div class="px-6 py-4 flex flex-row flex-wrap">
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >Ruby</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >Sinatra</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >JavaScript</span
+            >
+          </div>
+        </div>
+        <div
+          class="max-w-sm rounded overflow-hidden shadow flex flex-col m-6"
+        >
+          <img src="./public/paxata.png" alt="Paxata data prep" />
+          <div class="px-6 py-4">
+            <div class="font-bold text-lg sm:text-xl mb-2 text-primary">Paxata</div>
+            <p class="text-gray-700 text-xs sm:text-sm">
+              Paxata provides first-class data preparation capabilities for business analysts at an
+              interactive scale never before seen. It boasts a huge array of features, including collaborative projects to handle your data transformations, connector support for dozens of third-party data stores, and an intelligent automation system that allows you to run entire dependency graphs that can span across the entire platform, from import to export and everything in between!
+            </p>
+            <p class="text-gray-700 text-xs sm:text-sm">
+              That last one is a feature known as <a href="https://paxata.atlassian.net/wiki/spaces/PaxDocs/pages/539164948/Automatic+Project+Flows+APF">Automatic Project Flows</a> and was one of Paxata's largest engineering efforts before being acquired by DataRobot at the end of 2019. I was fortunate enough to be a part of that project, and was responsible for leading the frontend team as well as designing the architecture to support the feature. 
+            </p>
+          </div>
+          <div class="px-6 py-4 flex flex-row flex-wrap">
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >AngularJS</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >CoffeeScript</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >HTML/Less</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >Java</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >Scala</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >MongoDB</span
+            >
+          </div>
+        </div>
+        <div
+          class="max-w-sm rounded overflow-hidden shadow flex flex-col m-6"
+        >
+          <img src="./public/datarobot.png" alt="Paxata data prep" />
+          <div class="px-6 py-4">
+            <div class="font-bold text-lg sm:text-xl mb-2 text-primary">DataRobot</div>
+            <p class="text-gray-700 text-xs sm:text-sm">
+              After acquiring Paxata at the end of 2019, DataRobot is poised to be the best platform in the market for transforming your data into value. From data ingest to data preparation, feature engineering to building and deploying models, their AI/ML product offering is not only one of the most robust, but also one of the easiest to use (while still allowing you to take the reins whenever you're comfortable).
+            </p>
+            <p class="text-gray-700 text-xs sm:text-sm">
+              I can't really comment on any specifics, but I <em>can</em> say that my work there so far has consisted of a healthy blend of leading frontend feature teams, architecting large and small scale solutions, plenty of actual code work, and even a little bit of design!
+            </p>
+          </div>
+          <div class="px-6 py-4 flex flex-row flex-wrap">
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >React</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >AngularJS</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >JavaScript</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >HTML/JSX/Less</span
+            >
+            <span
+              class="inline-block bg-primary rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white mr-2 mb-2"
+              >Webpack</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="coming-soon">
+      <div class="flex flex-col flex-grow justify-center">
+        <h2 class="text-primary">Want to see more?</h2>
+        <p class="flex items-center">
+          You'll have to wait a bit first 😏
+        </p>
+        <p>
+          I'll be growing this website over time, but if you want to chat,
+          professionally or not, feel free to hit me up through Twitter or
+          LinkedIn. You can also check out what I've been up to coding-wise on
+          GitHub.
+        </p>
+        <div class="flex justify-center mt-8 space-x-3">
+          <a href="https://twitter.com/gleichsnerd"
+            ><i
+              class="fab fa-twitter-square fa-2x text-primary"
+              title="Twitter"
+            ></i
+          ></a>
+          <a href="https://www.linkedin.com/in/gleichsnerd/"
+            ><i class="fab fa-linkedin fa-2x text-primary" title="LinkedIn"></i
+          ></a>
+          <a href="https://github.com/gleichsnerd"
+            ><i
+              class="fab fa-github-square fa-2x text-primary"
+              title="GitHub"
+            ></i
+          ></a>
+        </div>
+      </div>
+      <footer class="flex-col leading-none mb-6">
+        <small id="legal" class="my-3">
+          All views and opinions expressed on this website are solely my own and
+          do not reflect those held by DataRobot or any of my previous
+          employers.
+        </small>
+      </footer>
+    </section>
+  </body>
 </html>

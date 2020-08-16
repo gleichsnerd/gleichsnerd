@@ -55,18 +55,23 @@ html {
     scroll-padding-bottom: 2rem;
 }
 
+img {
+    @apply max-h-card w-auto self-center;
+}
+
 section {
-    @apply bg-white flex flex-col min-h-screen flex-shrink-0 items-center justify-center p-6 leading-normal;
+    @apply bg-white flex flex-col min-h-screen flex-shrink-0 items-center justify-center p-3 leading-normal;
     scroll-snap-align: start;
 }
 
 section > div,
 footer {
     max-width: 65ch;
+    width: 100%;
 }
 
 section h2 {
-    @apply text-4xl font-bold mb-10;
+    @apply text-3xl font-bold mb-3 leading-loose;
 }
 
 section p {
@@ -83,7 +88,15 @@ section a {
 }
 
 @screen sm {
+    section {
+        @apply p-6;
+    }
+
     section p {
         @apply text-base;
+    }
+
+    section h2 {
+        @apply text-4xl font-bold mb-8;
     }
 }
